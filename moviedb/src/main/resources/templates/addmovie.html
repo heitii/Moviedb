@@ -9,41 +9,34 @@
 	<h1>Add a movie</h1>
 	<div>
 		<form th:object="${movie}" th:action="@{save}" action="#" method="post">
-		  <table>
-		  	<tr>	
-		  		<td>Title<input type="text" id="title" th:field="*{title}" /></td>
-		  		<td th:if="$#fields.hasErrors('title')}" th:errors="*{title}">Error</td>
-			</tr>
+		  
+		  	<label for="title">Title</label>
+			<input type="text" id="title" th:field="*{title}" />
+			<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</p>
 			
-			<!--  <div style="clear: both; display: block; height: 10px;"></div> -->
+			<div style="clear: both; display: block; height: 10px;"></div>
 		  	
-		  	<tr>
-		  		<td>Director<input type="text" id="director" th:field="*{director}" /></td>
-				<td th:if="$#fields.hasErrors('director')}" th:errors="*{director}">Error</td>
-			</tr>
+		  	<label for="director">Director</label>
+			<input type="text" id="director" th:field="*{director}" />
+			<p th:if="${#fields.hasErrors('director')}" th:errors="*{director}">Error</p>
 			
-			<!--  <div style="clear: both; display: block; height: 10px;"></div> -->
+			<div style="clear: both; display: block; height: 10px;"></div>
 		  	
-		  	<tr>
-		  		<td>Year<input type="text" id="year" th:field="*{year}" /></td>
-		  		<td th:if="$#fields.hasErrors('year')}" th:errors="*{year}">Error</td>
-			</tr>
+		  	<label for="year">Year</label>
+			<input type="text" id="year" th:field="*{year}" />
+			<p th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Error</p>
 			
-			<!--  <div style="clear: both; display: block; height: 10px;"></div> -->
+			<div style="clear: both; display: block; height: 10px;"></div>
 			
-			<tr>
-				<td>Rating<input type="text" id="rating" th:field="*{rating}" /></td>
-				<td th:if="$#fields.hasErrors('rating')}" th:errors="*{rating}">Error</td>
-			</tr>
+			<label for="rating">Rating</label>
+			<input type="text" id="rating" th:field="*{rating}" />
+			<p th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}">Error</p>
 			
-			<!--  <div style="clear: both; display: block; height: 10px;"></div> -->
+			<div style="clear: both; display: block; height: 10px;"></div>
 			
-			<tr>
-			<td>Length<input type="text" id="length" th:field="*{length}" /></td>
-			<td th:if="$#fields.hasErrors('length')}" th:errors="*{length}">Error</td>
-			</tr>
-			
-			<!--  <div style="clear: both; display: block; height: 10px;"></div> -->
+			<label for="length">Length</label>
+			<input type="text" id="length" th:field="*{length}" />
+			<p th:if="${#fields.hasErrors('length')}" th:errors="*{length}">Error</p>
 									
 		  	<div style="width: 100px">
 		  	<label for="categorylist">Category</label>
@@ -55,7 +48,6 @@
     		<div style="clear: both; display: block; height: 10px; width: 10px"></div>
 			
 			<input type="submit" value="Save"></input>
-			</table>
 		</form>
 	</div>
 </body>

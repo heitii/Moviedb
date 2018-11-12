@@ -59,19 +59,13 @@ public class MovieController {
 		return "addmovie";
 	}
 	
-	@RequestMapping(value="/addmovie", method=RequestMethod.POST)
-	public String addMovie(@Valid Movie movie, BindingResult bindingResult, Model model) {
+	/** Saves the info that was typed into a form **/
+	@RequestMapping(value="/save", method=RequestMethod.POST)
+	public String save(@Valid Movie movie, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "addmovie";
 		}
 		model.addAttribute("movie", movie);
-		return "movielist";
-	}
-	
-	/** Saves the info that was typed into a form **/
-	@RequestMapping(value="/save", method=RequestMethod.POST)
-	public String save(Movie movie) {
-		movierepository.save(movie);
 		return "redirect:movielist";
 	}
 	

@@ -1,13 +1,25 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-    <title>Moviedb</title>
+    <title th:text="#{title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#locales").change(function () {
+                var selectedOption = $('#locales').val();
+                if (selectedOption !== ''){
+                    window.location.replace('movielist?lang=' + selectedOption);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 	<div class="col-md-4">
-		<h1>Movielist</h1>
+		<h1 th:text="#{pageName}"></h1>
 	</div>
 	<div class="col-md-4">
 		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
@@ -17,15 +29,23 @@
 			<input type="submit" value="Sign Out" class="btn btn-danger"/>
 		</form>
 	</div>
+	<div class="col-md-4" style="padding: 20px 0">
+		<span th:text="#{lang.change}"></span>:
+		<select id="locales">
+    		<option value=""></option>
+    		<option value="en" th:text="#{lang.eng}"></option>
+    		<option value="ger" th:text="#{lang.ger}"></option>
+		</select>
+	</div>
     <table class="table table-striped">
     
 		<tr>
-		    <th>Title</th>
-		    <th>Director</th>
-		    <th>Year</th>
-		    <th>Length</th>
-		    <th>Category</th>
-		    <th>Rating</th>
+		    <th th:text="#{movieTitle}"></th>
+		    <th th:text="#{director}"></th>
+		    <th th:text="#{year}"></th>
+		    <th th:text="#{length}"></th>
+		    <th th:text="#{category}"></th>
+		    <th th:text="#{rating}"></th>
 		    <th sec:authorize="hasAuthority('ADMIN')"></th>
 		    <th sec:authorize="hasRole('ADMIN')"> </th>
 		    <th></th>

@@ -6,8 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -17,23 +16,14 @@ public class Movie {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@NotNull
-	@Size(min=1, max=200)
+	@NotBlank(message="Title can't be empty")
 	private String title;
 	
-	@NotNull
-	@Size(min=4, max=100)
+	@NotBlank(message="Director can't be empty")
 	private String director;
 	
-	@NotNull
-	@Size(min=4, max=4)
 	private int year;
-	
-	@NotNull
 	private int rating;
-	
-	@NotNull
-	@Size(min=1, max=4)
 	private int length;
 	
 	 @ManyToOne

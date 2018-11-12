@@ -1,4 +1,4 @@
-package hh.swd20.moviedb.config;
+package hh.swd20.moviedb.webcontrol;
 
 import java.util.Locale;
 
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @Configuration
-@ComponentScan(basePackages = "hh.swd20.moviedb.config")
+@ComponentScan(basePackages = "hh.swd20.moviedb.webcontrol")
 public class MvcConfig implements WebMvcConfigurer {
 
     @Bean
