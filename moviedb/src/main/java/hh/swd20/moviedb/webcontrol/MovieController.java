@@ -61,11 +61,11 @@ public class MovieController {
 	
 	/** Saves the info that was typed into a form **/
 	@RequestMapping(value="/save", method=RequestMethod.POST)
-	public String save(@Valid Movie movie, BindingResult bindingResult, Model model) {
+	public String save(@Valid Movie movie, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return "addmovie";
 		}
-		model.addAttribute("movie", movie);
+		movierepository.save(movie);
 		return "redirect:movielist";
 	}
 	
